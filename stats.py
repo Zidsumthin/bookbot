@@ -6,8 +6,8 @@ def get_book_text(filepath):
 
     return full_text
 
-def number_of_words():
-    text = get_book_text("/home/hovey/workspace/github.com/hovey/bookbot/books/frankenstein.txt")
+def number_of_words(filepath):
+    text = get_book_text(filepath)
     words = text.split()
     num_words = 0
 
@@ -17,8 +17,8 @@ def number_of_words():
 
     return num_words
 
-def number_of_characters():
-    text = get_book_text("/home/hovey/workspace/github.com/hovey/bookbot/books/frankenstein.txt").lower()
+def number_of_characters(filepath):
+    text = get_book_text(filepath).lower()
     char_dict = {}
     total_chars = [(text[i:i+1]) for i in range (0, len(text), 1)]
 
@@ -34,12 +34,12 @@ def number_of_characters():
 def sort_on(items):
     return items["num"]
 
-def sort_list():
-    text = get_book_text("/home/hovey/workspace/github.com/hovey/bookbot/books/frankenstein.txt").lower()
+def sort_list(filepath):
+    text = get_book_text(filepath).lower()
     char_dict = {}
-    total_words = number_of_words()
+    total_words = number_of_words(filepath)
 
-    bookbot_intro = f"============ BOOKBOT ============\nAnalyzing book found at books/frankenstein.txt...\n"
+    bookbot_intro = f"============ BOOKBOT ============\nAnalyzing book found at {filepath}...\n"
     word_count = f"----------- Word Count ----------\nFound {total_words} total words\n"
     character_count = f"--------- Character Count -------\n"
 
